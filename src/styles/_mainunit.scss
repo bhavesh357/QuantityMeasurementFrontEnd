@@ -1,0 +1,14 @@
+@import './variables';
+
+.quantity-type-main{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 30%;
+    margin: 1em 5% 1em 0%;
+    background: $secondary-color;
+}
+
+.quantity-type-main-name{
+    padding: 1em;
+}
