@@ -82,6 +82,9 @@
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
 }
 
 .icon {
@@ -174,7 +177,7 @@
       -ms-flex-align: center;
           align-items: center;
   width: 30%;
-  margin: 1em 5% 1em 0%;
+  margin: 1em 0%;
   background: #ffffff;
   border-radius: 7px;
   border: white solid 1px;
@@ -204,6 +207,9 @@
   display: -ms-flexbox;
   display: flex;
   padding: 1em 0em;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
 }
 
 .quantity-type-sub {
@@ -214,7 +220,7 @@
   -webkit-box-direction: normal;
       -ms-flex-direction: column;
           flex-direction: column;
-  width: 50%;
+  width: 45%;
 }
 
 .quantity-type-sub-message {
@@ -226,7 +232,9 @@
 }
 
 .quantity-type-sub-input {
-  padding: 1em;
+  padding: 0.25em 0em 0.2em 0.5em;
+  font-size: 31px;
+  font-weight: 500;
 }
 
 .App {

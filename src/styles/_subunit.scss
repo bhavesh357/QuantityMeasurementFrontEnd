@@ -3,12 +3,13 @@
 .quantity-sub-units{
     display: flex;
     padding: 1em 0em;
+    justify-content: space-between;
 }
 
 .quantity-type-sub{
     display: flex;
     flex-direction: column;
-    width: 50%;
+    width: 45%;
 }
 
 .quantity-type-sub-message{
@@ -20,5 +21,7 @@
 }
 
 .quantity-type-sub-input{
-    padding: 1em;
+    padding: 0.25em 0em 0.2em 0.5em;
+    font-size: 31px;
+    font-weight: 500;
 }
