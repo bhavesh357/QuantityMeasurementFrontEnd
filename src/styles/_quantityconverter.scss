@@ -1,0 +1,17 @@
+@import './variables';
+
+.quantity-converter{
+    width: 50%;
+    margin: auto;
+    padding: 3em 0em;
+}
+
+.svg-icons{
+    display: none;
+}
+
+.quantity-type{
+    font-family: $primary-font;
+    font-weight: 500;
+    padding: 1em 0em;
+}
