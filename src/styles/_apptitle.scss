@@ -1,0 +1,13 @@
+@import './variables';
+
+.app-title{
+    font-size: $primary-font;
+    font-weight: 400;
+    font-size: 25px;
+    padding: 25px 0px;
+    background: $primary-color;
+    color: $secondary-color;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}

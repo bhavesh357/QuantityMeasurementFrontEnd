@@ -1,5 +1,6 @@
 import React from 'react';
-import Header from './Header'
+import Header from './Header';
+import AppTitle from './AppTitle';
 import './../styles/style.css'
 
 class App extends React.Component{
@@ -7,6 +8,7 @@ class App extends React.Component{
     return (
     <div className="App">
         <Header />
+        <AppTitle title="Welcome to Quantity Measurement"/>
     </div>
     );
   }
