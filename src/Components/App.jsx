@@ -7,15 +7,15 @@ import './../styles/style.css'
 var units=[{
   mainUnit:"Length",
   logo: "#length",
-  subUnit:["Meter","Centimeter","Feet","Yard"]
+  subUnits:["Meter","Centimeter","Feet","Yard"]
 },{
   mainUnit:"Temperature",
   logo: "#temperature",
-  subUnit:["Celcius","Farenheit"]
+  subUnits:["Celcius","Farenheit"]
 },{
   mainUnit:"Volume",
   logo: "#volume",
-  subUnit:["Litre","Mililitre","Gallon"]
+  subUnits:["Litre","Mililitre","Gallon"]
 }]
 
 class App extends React.Component{

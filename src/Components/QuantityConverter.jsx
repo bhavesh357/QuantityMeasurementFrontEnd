@@ -1,7 +1,15 @@
 import React from 'react';
-import MainUnit from './MainUnit'
+import MainUnit from './MainUnit';
+import SubUnit from './SubUnit';
 
 class QuantityConverter extends React.Component{
+    constructor(props){
+        super(props);
+        this.state={
+            currentUnit: this.props.units[0].mainUnit,
+        };
+    }
+
     render(){
 
         var units= this.props.units.map(unit => {
@@ -9,6 +17,10 @@ class QuantityConverter extends React.Component{
                 <MainUnit name={unit.mainUnit} logo={unit.logo} />
             );
         })
+
+        var unit=this.props.units.filter( e => {
+            return e.mainUnit===this.state.currentUnit
+        });
 
         return (
             <div className="quantity-converter">
@@ -25,6 +37,11 @@ class QuantityConverter extends React.Component{
                 <div className="quantity-units">
                     {units}
                 </div>
+                <div className="quantity-sub-units">
+                    <SubUnit message="from" subUnits={unit[0].subUnits} />
+                    <SubUnit message="to" subUnits={unit[0].subUnits} />
+                </div>
+                
             </div>
         );
     }
