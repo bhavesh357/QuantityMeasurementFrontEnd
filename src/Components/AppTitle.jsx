@@ -4,7 +4,7 @@ class AppTitle extends React.Component{
     render(){
         return (
             <div className="app-title">
-                <div className="name">
+                <div className="app-title-name">
                     {this.props.title}
                 </div>
             </div>
