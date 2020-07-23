@@ -38,8 +38,8 @@ class QuantityConverter extends React.Component{
                     {units}
                 </div>
                 <div className="quantity-sub-units">
-                    <SubUnit message="from" subUnits={unit[0].subUnits} />
-                    <SubUnit message="to" subUnits={unit[0].subUnits} />
+                    <SubUnit message="FROM" subUnits={unit[0].subUnits} />
+                    <SubUnit message="TO" subUnits={unit[0].subUnits} />
                 </div>
                 
             </div>

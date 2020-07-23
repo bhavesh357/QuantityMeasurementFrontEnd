@@ -8,11 +8,14 @@
     margin: 1em 5% 1em 0%;
     background: $secondary-color;
     border-radius: 7px;
+    border: white solid 1px;
     &:hover{
         color: red;
         border: red solid 1px;
         .quantity-type-main-name{
             font-weight: 700;
+            color: red;
+            opacity: 100%;
         }
     }
 }
@@ -21,4 +24,6 @@
     padding: 1em;
     font-size: 19px;
     font-weight: 500;
+    color: $primary-text;
+    opacity: 21%;
 }

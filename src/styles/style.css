@@ -177,6 +177,7 @@
   margin: 1em 5% 1em 0%;
   background: #ffffff;
   border-radius: 7px;
+  border: white solid 1px;
 }
 
 .quantity-type-main:hover {
@@ -186,23 +187,51 @@
 
 .quantity-type-main:hover .quantity-type-main-name {
   font-weight: 700;
+  color: red;
+  opacity: 100%;
 }
 
 .quantity-type-main-name {
   padding: 1em;
   font-size: 19px;
   font-weight: 500;
+  color: #000000;
+  opacity: 21%;
 }
 
 .quantity-sub-units {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
+  padding: 1em 0em;
+}
+
+.quantity-type-sub {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  width: 50%;
+}
+
+.quantity-type-sub-message {
+  font-weight: 500;
+  font-size: 15px;
+  color: #000000;
+  opacity: 62%;
+  padding: 0.5em 0em;
+}
+
+.quantity-type-sub-input {
+  padding: 1em;
 }
 
 .App {
   width: 100%;
-  height: 100vh;
+  height: 100%;
   background: #F5F6FA;
 }
 /*# sourceMappingURL=style.css.map */
