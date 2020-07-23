@@ -64,6 +64,7 @@
   width: 50%;
   margin: auto;
   padding: 3em 0em;
+  font-family: "Montserrat", sans-serif;
 }
 
 .svg-icons {
@@ -125,18 +126,6 @@
 }
 
 #length-g .a {
-  fill: #edfdf9;
-}
-
-#length-g .b {
-  fill: #ffa058;
-}
-
-#length-g .c {
-  fill: #0ec098;
-}
-
-#length-g .a {
   fill: #e0dcdc;
 }
 
@@ -146,6 +135,30 @@
 
 #length-g .c {
   fill: #919090;
+}
+
+#length-g:focus .a {
+  fill: #edfdf9;
+}
+
+#length-g:focus .b {
+  fill: #ffa058;
+}
+
+#length-g:focus .c {
+  fill: #0ec098;
+}
+
+#length-g:hover .a {
+  fill: #edfdf9;
+}
+
+#length-g:hover .b {
+  fill: #ffa058;
+}
+
+#length-g:hover .c {
+  fill: #0ec098;
 }
 
 .quantity-type-main {
@@ -162,10 +175,22 @@
   width: 30%;
   margin: 1em 5% 1em 0%;
   background: #ffffff;
+  border-radius: 7px;
+}
+
+.quantity-type-main:hover {
+  color: red;
+  border: red solid 1px;
+}
+
+.quantity-type-main:hover .quantity-type-main-name {
+  font-weight: 700;
 }
 
 .quantity-type-main-name {
   padding: 1em;
+  font-size: 19px;
+  font-weight: 500;
 }
 
 .App {

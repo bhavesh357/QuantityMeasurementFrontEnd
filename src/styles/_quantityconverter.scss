@@ -4,6 +4,7 @@
     width: 50%;
     margin: auto;
     padding: 3em 0em;
+    font-family: $primary-font ;
 }
 
 .svg-icons{
@@ -34,6 +35,12 @@
 }
 
 #length-g{
-    .a{fill:#edfdf9;}.b{fill:#ffa058;}.c{fill:#0ec098;}
+    
     .a{fill:#e0dcdc;}.b{fill:#f5f5f5;}.c{fill:#919090;}
+    &:focus{
+        .a{fill:#edfdf9;}.b{fill:#ffa058;}.c{fill:#0ec098;}
+        }
+        &:hover{
+            .a{fill:#edfdf9;}.b{fill:#ffa058;}.c{fill:#0ec098;}
+        }
 }
