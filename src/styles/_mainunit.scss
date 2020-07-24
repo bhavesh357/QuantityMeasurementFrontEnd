@@ -13,21 +13,25 @@
 }
 
 #quantity-type-main-length{
-    &:hover{
+    &:hover , &:focus{
         border: #0EC098 solid 1px;
         background: #EDFDF9;
+        box-shadow: 0px 3px 6px #00000029;
+
     .quantity-type-main-name{
         font-weight: 700;
         color: #0EC098;
         opacity: 100%;
     }
+    outline: none;
 }
 }
 
 #quantity-type-main-temperature{
-    &:hover{
+    &:hover , &:focus{
         border: #FD5160 solid 1px;
         background: #FFEEF0;
+        box-shadow: 0px 3px 6px #00000029;
     .quantity-type-main-name{
         font-weight: 700;
         color: #FD5160;
@@ -37,9 +41,10 @@
 }
 
 #quantity-type-main-volume{
-    &:hover{
+    &:hover , &:focus{
         border: #7224FF solid 1px;
         background: #E8DDFF;
+        box-shadow: 0px 3px 6px #00000029;
     .quantity-type-main-name{
         font-weight: 700;
         color: #7224FF;

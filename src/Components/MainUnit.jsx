@@ -17,7 +17,11 @@ class MainUnit extends React.Component{
     }
 
     componentDidMount(){
-        console.log(document.getElementsByClassName("quantity-type-main"));
+        if(this.state.isSelected){
+            console.log("making it active");
+            console.log(document.getElementById("quantity-type-main-"+this.props.name.toLowerCase()));
+            document.getElementById("quantity-type-main-"+this.props.name.toLowerCase()).focus();
+        }
     }
     
     render(){
