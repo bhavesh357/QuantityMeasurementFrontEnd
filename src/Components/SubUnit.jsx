@@ -17,7 +17,7 @@ class SubUnit extends React.Component{
     render(){
         var list= this.props.subUnits.map(unit => {
             return (
-                <option value={unit}>{unit}</option>
+                <option key={unit} value={unit}>{unit}</option>
             );
         })
         return (

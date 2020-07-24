@@ -14,7 +14,7 @@ class QuantityConverter extends React.Component{
 
         var units= this.props.units.map(unit => {
             return (
-                <MainUnit name={unit.mainUnit} logo={unit.logo} />
+                <MainUnit key={unit.mainUnit} name={unit.mainUnit} logo={unit.logo} />
             );
         })
 
