@@ -7,7 +7,22 @@ class QuantityConverter extends React.Component{
         super(props);
         this.state={
             currentUnit: this.props.units[0].mainUnit,
+            selectedSubUnit: "none",
         };
+        this.disableSubUnit=this.disableSubUnit.bind(this);
+    }
+
+    componentDidMount(){
+        console.log(this.state.selectedSubUnit);
+    }
+
+    disableSubUnit(value){
+        console.log(this.state.selectedSubUnit);
+        console.log(value);
+        this.setState({
+            selectedSubUnit: value,
+        }); 
+        console.log(this.state.selectedSubUnit);
     }
 
     render(){
@@ -38,8 +53,8 @@ class QuantityConverter extends React.Component{
                     {units}
                 </div>
                 <div className="quantity-sub-units">
-                    <SubUnit message="FROM" subUnits={unit[0].subUnits} />
-                    <SubUnit message="TO" subUnits={unit[0].subUnits} />
+                    <SubUnit message="FROM" subUnits={unit[0].subUnits} handleSubUnit={this.disableSubUnit} disabledUnit=""/>
+                    <SubUnit message="TO" subUnits={unit[0].subUnits} handleSubUnit={this.disableSubUnit} disabledUnit={this.state.selectedSubUnit} />
                 </div>
                 
             </div>
