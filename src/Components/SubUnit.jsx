@@ -9,13 +9,9 @@ class SubUnit extends React.Component{
     }
 
     handleClick(){
-        console.log("tracking select");
-        if(!this.state.isTriggered){
-            var element= document.getElementById(this.props.message.toLowerCase());
-            element.children[0].style={"display":"none"};
-            console.log(element.children[0]);
-            
-        }
+        this.setState({
+            isTriggered: !this.state.isTriggered,
+        } );       
     }
 
     render(){
