@@ -20,7 +20,7 @@ class SubUnit extends React.Component{
 
     componentDidMount(){
         this.handleChange();
-        
+        console.log(this.props.disabledUnit);
     }
 
     handleClick(){
@@ -41,7 +41,7 @@ class SubUnit extends React.Component{
             return (
                 this.props.disabledUnit===unit ? 
                 <option disabled key={unit} value={unit}>{unit}</option>:
-                <option key={unit} value={unit}>{unit}</option>
+                <option selected key={unit} value={unit}>{unit}</option>
             );
         })
         return (
@@ -55,7 +55,7 @@ class SubUnit extends React.Component{
                     <div className="arrow-up arrow"></div>:
                         <div className="arrow-down arrow"></div>
             }
-            <select defaultValue={this.state.selectedSubSubUnit} className="quantity-type-sub-dropdown">
+            <select className="quantity-type-sub-dropdown">
                 {list}
             </select>
             </div>
