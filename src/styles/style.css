@@ -240,12 +240,51 @@
   border-bottom: 0px;
 }
 
+.quantity-type-sub-input:focus {
+  outline: none;
+}
+
 .quantity-type-sub-dropdown {
   font-size: 15px;
   padding: 1em 1em;
   border: #e4e4e4 solid 1px;
   font-weight: 500;
   font-family: "Montserrat", sans-serif;
+  width: 100%;
+  -webkit-appearance: none;
+     -moz-appearance: none;
+          appearance: none;
+}
+
+.quantity-type-sub-dropdown:focus {
+  outline: none;
+}
+
+.arrow-up {
+  width: 0;
+  height: 0;
+  border-left: 5px solid transparent;
+  border-right: 5px solid transparent;
+  border-bottom: 5px solid black;
+}
+
+.arrow-down {
+  width: 0;
+  height: 0;
+  border-left: 5px solid transparent;
+  border-right: 5px solid transparent;
+  border-top: 5px solid black;
+}
+
+.quantity-subUnit-container {
+  position: relative;
+}
+
+.arrow {
+  position: absolute;
+  top: 45%;
+  right: 5%;
+  pointer-events: none;
 }
 
 .App {

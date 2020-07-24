@@ -27,6 +27,9 @@
     font-family: "Roboto";
     border: $secondary-text solid 1px;
     border-bottom: 0px;
+    &:focus{
+        outline: none;
+    }
 }
 
 .quantity-type-sub-dropdown{
@@ -35,4 +38,37 @@
     border: $secondary-text solid 1px;
     font-weight: 500;
     font-family: $primary-font;
+    width: 100%;
+    appearance: none;
+    &:focus{
+        outline: none;
+    }
 }
+
+.arrow-up {
+    width: 0; 
+    height: 0; 
+    border-left: 5px solid transparent;
+    border-right: 5px solid transparent;
+    
+    border-bottom: 5px solid black;
+  }
+.arrow-down {
+    width: 0; 
+    height: 0; 
+    border-left: 5px solid transparent;
+    border-right: 5px solid transparent;
+    
+    border-top: 5px solid black;
+  }
+
+  .quantity-subUnit-container{
+      position: relative;
+  }
+
+  .arrow{
+    position: absolute;
+    top: 45%;
+    right: 5%;
+    pointer-events: none;
+  }
