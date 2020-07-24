@@ -26,22 +26,3 @@
     width: 50px;
     height: 85px;
 }
-
-#volume-g{
-    .a{fill:#f5f5f5;stroke:#f5f5f5;}.b{fill:#e4e4e4;}.c{fill:#e0dcdc;}.d{fill:#919090;}
-}
-
-#temp-g{
-    .a{fill:#f5f5f5;}.b{fill:#e6e6e6;}.c{fill:#e4e4e4;}.d{fill:#919090;}.e{fill:#e0dcdc;}
-}
-
-#length-g{
-    
-    .a{fill:#e0dcdc;}.b{fill:#f5f5f5;}.c{fill:#919090;}
-    &:focus{
-        .a{fill:#edfdf9;}.b{fill:#ffa058;}.c{fill:#0ec098;}
-        }
-        &:hover{
-            .a{fill:#edfdf9;}.b{fill:#ffa058;}.c{fill:#0ec098;}
-        }
-}

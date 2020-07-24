@@ -28,8 +28,13 @@ class QuantityConverter extends React.Component{
     render(){
 
         var units= this.props.units.map(unit => {
+            
+            console.log(unit.mainUnit);
+            console.log(this.state.currentUnit);
             return (
-                <MainUnit key={unit.mainUnit} name={unit.mainUnit} logo={unit.logo} />
+                this.state.currentUnit=== unit.mainUnit ? 
+                <MainUnit selected={true} key={unit.mainUnit} name={unit.mainUnit} logo={unit.logo} />:
+                <MainUnit selected={false} key={unit.mainUnit} name={unit.mainUnit} logo={unit.logo} />
             );
         })
 

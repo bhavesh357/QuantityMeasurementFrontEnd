@@ -92,6 +92,65 @@
   height: 85px;
 }
 
+.quantity-type-main {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  width: 30%;
+  margin: 1em 0%;
+  background: #ffffff;
+  border-radius: 7px;
+  border: white solid 1px;
+}
+
+#quantity-type-main-length:hover {
+  border: #0EC098 solid 1px;
+  background: #EDFDF9;
+}
+
+#quantity-type-main-length:hover .quantity-type-main-name {
+  font-weight: 700;
+  color: #0EC098;
+  opacity: 100%;
+}
+
+#quantity-type-main-temperature:hover {
+  border: #FD5160 solid 1px;
+  background: #FFEEF0;
+}
+
+#quantity-type-main-temperature:hover .quantity-type-main-name {
+  font-weight: 700;
+  color: #FD5160;
+  opacity: 100%;
+}
+
+#quantity-type-main-volume:hover {
+  border: #7224FF solid 1px;
+  background: #E8DDFF;
+}
+
+#quantity-type-main-volume:hover .quantity-type-main-name {
+  font-weight: 700;
+  color: #7224FF;
+  opacity: 100%;
+}
+
+.quantity-type-main-name {
+  padding: 1em;
+  font-size: 19px;
+  font-weight: 500;
+  color: #000000;
+  opacity: 21%;
+}
+
 #volume-g .a {
   fill: #f5f5f5;
   stroke: #f5f5f5;
@@ -107,6 +166,18 @@
 
 #volume-g .d {
   fill: #919090;
+}
+
+#volume-g:hover .a {
+  fill: #edfdf9;
+}
+
+#volume-g:hover .b {
+  fill: #ffa058;
+}
+
+#volume-g:hover .c {
+  fill: #0ec098;
 }
 
 #temp-g .a {
@@ -129,6 +200,18 @@
   fill: #e0dcdc;
 }
 
+#temp-g:hover .a {
+  fill: #edfdf9;
+}
+
+#temp-g:hover .b {
+  fill: #ffa058;
+}
+
+#temp-g:hover .c {
+  fill: #0ec098;
+}
+
 #length-g .a {
   fill: #e0dcdc;
 }
@@ -141,65 +224,16 @@
   fill: #919090;
 }
 
-#length-g:focus .a {
-  fill: #edfdf9;
-}
-
-#length-g:focus .b {
-  fill: #ffa058;
-}
-
-#length-g:focus .c {
-  fill: #0ec098;
-}
-
 #length-g:hover .a {
-  fill: #edfdf9;
+  fill: #000000;
 }
 
 #length-g:hover .b {
-  fill: #ffa058;
+  fill: #000000;
 }
 
 #length-g:hover .c {
   fill: #0ec098;
-}
-
-.quantity-type-main {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-orient: vertical;
-  -webkit-box-direction: normal;
-      -ms-flex-direction: column;
-          flex-direction: column;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
-  width: 30%;
-  margin: 1em 0%;
-  background: #ffffff;
-  border-radius: 7px;
-  border: white solid 1px;
-}
-
-.quantity-type-main:hover {
-  color: red;
-  border: red solid 1px;
-}
-
-.quantity-type-main:hover .quantity-type-main-name {
-  font-weight: 700;
-  color: red;
-  opacity: 100%;
-}
-
-.quantity-type-main-name {
-  padding: 1em;
-  font-size: 19px;
-  font-weight: 500;
-  color: #000000;
-  opacity: 21%;
 }
 
 .quantity-sub-units {
