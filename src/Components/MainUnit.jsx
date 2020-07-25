@@ -18,9 +18,15 @@ class MainUnit extends React.Component{
 
     componentDidMount(){
         if(this.state.isSelected){
-            console.log("making it active");
-            console.log(document.getElementById("quantity-type-main-"+this.props.name.toLowerCase()));
-            document.getElementById("quantity-type-main-"+this.props.name.toLowerCase()).focus();
+            document.getElementById("quantity-type-main-"+this.props.name.toLowerCase()).classList.add("main-unit-active-"+this.props.name.toLowerCase());
+            document.getElementById("quantity-type-main-"+this.props.name.toLowerCase()+"-logo").src=require('./../images/'+this.props.logo+'-color.svg');
+        }
+    }
+
+    handleMouseOver(){
+        if(!this.state.isSelected){
+            document.getElementById("quantity-type-main-"+this.props.name.toLowerCase()).classList.add("main-unit-active-"+this.props.name.toLowerCase());
+            document.getElementById("quantity-type-main-"+this.props.name.toLowerCase()+"-logo").src=require('./../images/'+this.props.logo+'-color.svg');
         }
     }
     
@@ -28,9 +34,9 @@ class MainUnit extends React.Component{
 
         var id="quantity-type-main-"+this.props.name.toLowerCase();
         return (
-            <div className="quantity-type-main" id={id}>
+            <div onMouseOver={() => this.handleMouseOver()} className="quantity-type-main" id={id}>
             <div className="quantity-type-main-logo">
-            <img className="logo" src={require('./../images/'+this.props.logo+'.svg')} alt="logo"/>
+            <img id={id+"-logo"} className="logo" src={require('./../images/'+this.props.logo+'.svg')} alt="logo"/>
             </div>
             <div className="quantity-type-main-name">
             {this.props.name}
