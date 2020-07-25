@@ -10,6 +10,7 @@ class QuantityConverter extends React.Component{
             selectedSubUnit: "none",
         };
         this.disableSubUnit=this.disableSubUnit.bind(this);
+        this.handleMainUnitChange=this.handleMainUnitChange.bind(this);
     }
 
     componentDidMount(){
@@ -25,6 +26,14 @@ class QuantityConverter extends React.Component{
         console.log(this.state.selectedSubUnit);
     }
 
+    handleMainUnitChange(mainUnit){
+        console.log(this.state.currentUnit);
+        this.setState({
+            currentUnit: mainUnit,
+        });
+        console.log(this.state.currentUnit);
+    }
+
     render(){
 
         var units= this.props.units.map(unit => {
@@ -33,8 +42,8 @@ class QuantityConverter extends React.Component{
             console.log(this.state.currentUnit);
             return (
                 this.state.currentUnit=== unit.mainUnit ? 
-                <MainUnit selected={true} key={unit.mainUnit} name={unit.mainUnit} logo={unit.logo} />:
-                <MainUnit selected={false} key={unit.mainUnit} name={unit.mainUnit} logo={unit.logo} />
+                <MainUnit selected={true} key={unit.mainUnit} name={unit.mainUnit} logo={unit.logo} handleMainUnitChange={this.handleMainUnitChange}/>:
+                <MainUnit selected={false} key={unit.mainUnit} name={unit.mainUnit} logo={unit.logo} handleMainUnitChange={this.handleMainUnitChange}/>
             );
         })
 

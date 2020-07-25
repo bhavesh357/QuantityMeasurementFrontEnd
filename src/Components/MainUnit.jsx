@@ -3,45 +3,58 @@ import React from 'react';
 class MainUnit extends React.Component{
     constructor(props){
         super(props);
+        console.log(this.props.selected+" "+this.props.name);
         this.state={
             isSelected: this.props.selected, 
         }
     }
-    
-    toggle(){
-        if(!this.props.selected){
-            this.setState({
-                isSelected: !this.state.isSelected,
-            });
-        }
-    }
 
     componentDidMount(){
-        if(this.state.isSelected){
+        console.log("i am out");
+        console.log(this.state.isSelected+" "+this.props.name);
+        if(this.props.selected){
+            console.log("i am in");
             document.getElementById("quantity-type-main-"+this.props.name.toLowerCase()).classList.add("main-unit-active-"+this.props.name.toLowerCase());
             document.getElementById("quantity-type-main-"+this.props.name.toLowerCase()+"-logo").src=require('./../images/'+this.props.logo+'-color.svg');
         }
     }
 
+    componentDidUpdate(){
+        console.log("i am update out");
+        console.log(this.props.selected+" "+this.state.isSelected+" "+this.props.name);
+        if(this.props.selected){
+            console.log("i am update in");
+            document.getElementById("quantity-type-main-"+this.props.name.toLowerCase()).classList.add("main-unit-active-"+this.props.name.toLowerCase());
+            document.getElementById("quantity-type-main-"+this.props.name.toLowerCase()+"-logo").src=require('./../images/'+this.props.logo+'-color.svg');
+        }else{
+            document.getElementById("quantity-type-main-"+this.props.name.toLowerCase()).classList.remove("main-unit-active-"+this.props.name.toLowerCase());
+            document.getElementById("quantity-type-main-"+this.props.name.toLowerCase()+"-logo").src=require('./../images/'+this.props.logo+'.svg');
+        }
+    }
+
     handleMouseOver(){
-        if(!this.state.isSelected){
+        if(!this.props.selected){
             document.getElementById("quantity-type-main-"+this.props.name.toLowerCase()).classList.toggle("main-unit-active-"+this.props.name.toLowerCase());
             document.getElementById("quantity-type-main-"+this.props.name.toLowerCase()+"-logo").src=require('./../images/'+this.props.logo+'-color.svg');
         }
     }
 
     handleMouseOut(){
-        if(!this.state.isSelected){
+        if(!this.props.selected){
             document.getElementById("quantity-type-main-"+this.props.name.toLowerCase()).classList.toggle("main-unit-active-"+this.props.name.toLowerCase());
             document.getElementById("quantity-type-main-"+this.props.name.toLowerCase()+"-logo").src=require('./../images/'+this.props.logo+'.svg');
         }
+    }
+
+    handleChange(){
+        this.props.handleMainUnitChange(this.props.name);
     }
     
     render(){
 
         var id="quantity-type-main-"+this.props.name.toLowerCase();
         return (
-            <div onMouseOver={() => this.handleMouseOver()} onMouseOut={() => this.handleMouseOut()}className="quantity-type-main" id={id}>
+            <div onMouseOver={() => this.handleMouseOver()} onMouseOut={() => this.handleMouseOut()} onClick={()=> this.handleChange()} className="quantity-type-main" id={id}>
             <div className="quantity-type-main-logo">
             <img id={id+"-logo"} className="logo" src={require('./../images/'+this.props.logo+'.svg')} alt="logo"/>
             </div>
