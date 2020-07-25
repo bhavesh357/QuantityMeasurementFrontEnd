@@ -40,8 +40,8 @@ class SubUnit extends React.Component{
         var list= this.props.subUnits.map(unit => {
             return (
                 this.props.disabledUnit===unit ? 
-                <option disabled key={unit} value={unit}>{unit}</option>:
-                <option selected key={unit} value={unit}>{unit}</option>
+                <option className="sub-unit-option" disabled key={unit} value={unit}>{unit}</option>:
+                <option className="sub-unit-option" selected key={unit} value={unit}>{unit}</option>
             );
         })
         return (
@@ -50,7 +50,7 @@ class SubUnit extends React.Component{
                 {this.props.message}
             </div>
             <input className="quantity-type-sub-input" />
-            <div onClick={() => this.handleClick()} onChange={() => this.handleChange() } id={this.props.message.toLowerCase()} className="quantity-subUnit-container">  
+            <div onClick={(time) => this.handleClick()} onChange={() => this.handleChange() } id={this.props.message.toLowerCase()} className="quantity-subUnit-container">  
                 {this.state.isTriggered ? 
                     <div className="arrow-up arrow"></div>:
                         <div className="arrow-down arrow"></div>

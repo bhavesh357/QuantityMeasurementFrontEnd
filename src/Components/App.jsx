@@ -6,15 +6,15 @@ import './../styles/style.css'
 
 var units=[{
   mainUnit:"Length",
-  logo: "#length",
+  logo: "length",
   subUnits:["Meter","Centimeter","Feet","Yard"]
 },{
   mainUnit:"Temperature",
-  logo: "#temperature",
+  logo: "temp",
   subUnits:["Celcius","Farenheit"]
 },{
   mainUnit:"Volume",
-  logo: "#volume",
+  logo: "volume",
   subUnits:["Litre","Mililitre","Gallon"]
 }]
 

@@ -39,7 +39,7 @@
 }
 
 .app-title {
-  font-size: "Montserrat", sans-serif;
+  font-family: "Montserrat", sans-serif;
   font-weight: 400;
   font-size: 25px;
   padding: 25px 0px;
@@ -57,12 +57,12 @@
 }
 
 .app-title-name {
-  width: 50%;
+  width: 45%;
   height: 100%;
 }
 
 .quantity-converter {
-  width: 50%;
+  width: 45%;
   margin: auto;
   padding: 3em 0em;
   font-family: "Montserrat", sans-serif;
@@ -152,10 +152,14 @@
 
 .quantity-type-main-name {
   padding: 1em;
-  font-size: 19px;
+  font-size: 15px;
   font-weight: 500;
   color: #000000;
   opacity: 21%;
+}
+
+.logo {
+  padding: 2em 0em 0em;
 }
 
 #volume-g .a {
@@ -220,7 +224,7 @@
 }
 
 #length-g .a {
-  fill: #e0dcdc;
+  fill: #000000;
 }
 
 #length-g .b {
@@ -326,6 +330,10 @@
   top: 45%;
   right: 5%;
   pointer-events: none;
+}
+
+.sub-unit-option {
+  padding: 0.25em 0em;
 }
 
 .App {

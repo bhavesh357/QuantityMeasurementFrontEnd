@@ -30,9 +30,7 @@ class MainUnit extends React.Component{
         return (
             <div className="quantity-type-main" id={id}>
             <div className="quantity-type-main-logo">
-            <svg className="icon">
-            <use xlinkHref={this.props.logo} />
-            </svg>
+            <img className="logo" src={require('./../images/'+this.props.logo+'.svg')} alt="logo"/>
             </div>
             <div className="quantity-type-main-name">
             {this.props.name}
