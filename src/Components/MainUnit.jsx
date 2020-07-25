@@ -25,8 +25,15 @@ class MainUnit extends React.Component{
 
     handleMouseOver(){
         if(!this.state.isSelected){
-            document.getElementById("quantity-type-main-"+this.props.name.toLowerCase()).classList.add("main-unit-active-"+this.props.name.toLowerCase());
+            document.getElementById("quantity-type-main-"+this.props.name.toLowerCase()).classList.toggle("main-unit-active-"+this.props.name.toLowerCase());
             document.getElementById("quantity-type-main-"+this.props.name.toLowerCase()+"-logo").src=require('./../images/'+this.props.logo+'-color.svg');
+        }
+    }
+
+    handleMouseOut(){
+        if(!this.state.isSelected){
+            document.getElementById("quantity-type-main-"+this.props.name.toLowerCase()).classList.toggle("main-unit-active-"+this.props.name.toLowerCase());
+            document.getElementById("quantity-type-main-"+this.props.name.toLowerCase()+"-logo").src=require('./../images/'+this.props.logo+'.svg');
         }
     }
     
@@ -34,7 +41,7 @@ class MainUnit extends React.Component{
 
         var id="quantity-type-main-"+this.props.name.toLowerCase();
         return (
-            <div onMouseOver={() => this.handleMouseOver()} className="quantity-type-main" id={id}>
+            <div onMouseOver={() => this.handleMouseOver()} onMouseOut={() => this.handleMouseOut()}className="quantity-type-main" id={id}>
             <div className="quantity-type-main-logo">
             <img id={id+"-logo"} className="logo" src={require('./../images/'+this.props.logo+'.svg')} alt="logo"/>
             </div>
