@@ -76,3 +76,9 @@
   .sub-unit-option{
     padding: 0.25em 0em;
   }
+
+@media (max-width:576px){
+    .quantity-type-sub-input{
+        font-size: 30px;
+    }
+}

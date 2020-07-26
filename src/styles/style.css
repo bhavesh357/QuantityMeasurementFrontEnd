@@ -290,6 +290,20 @@
   padding: 0.25em 0em;
 }
 
+@media (max-width: 576px) {
+  .quantity-type-sub-input {
+    font-size: 30px;
+  }
+}
+
+body {
+  margin: 0em;
+  padding: 0em;
+  height: 100vh;
+  width: 100%;
+  background: #F5F6FA;
+}
+
 .App {
   width: 100%;
   height: 100%;
