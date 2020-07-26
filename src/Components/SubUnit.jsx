@@ -19,6 +19,7 @@ class SubUnit extends React.Component{
     }
 
     componentDidMount(){
+        console.log("I am subunit");
         this.handleChange();
         console.log(this.props.disabledUnit);
     }
@@ -31,9 +32,10 @@ class SubUnit extends React.Component{
 
     handleChange(){
         console.log(document.getElementById(this.props.message.toLowerCase()).children[1].value); 
-        var selectedSubUnit= document.getElementById(this.props.message.toLowerCase()).children[1].value;
+        let selectedSubUnit= document.getElementById(this.props.message.toLowerCase()).children[1].value;
         this.props.handleSubUnit(selectedSubUnit);
     }
+    
 
     render(){
 

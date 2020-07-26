@@ -3,27 +3,20 @@ import React from 'react';
 class MainUnit extends React.Component{
     constructor(props){
         super(props);
-        console.log(this.props.selected+" "+this.props.name);
         this.state={
             isSelected: this.props.selected, 
         }
     }
 
     componentDidMount(){
-        console.log("i am out");
-        console.log(this.state.isSelected+" "+this.props.name);
         if(this.props.selected){
-            console.log("i am in");
             document.getElementById("quantity-type-main-"+this.props.name.toLowerCase()).classList.add("main-unit-active-"+this.props.name.toLowerCase());
             document.getElementById("quantity-type-main-"+this.props.name.toLowerCase()+"-logo").src=require('./../images/'+this.props.logo+'-color.svg');
         }
     }
 
     componentDidUpdate(){
-        console.log("i am update out");
-        console.log(this.props.selected+" "+this.state.isSelected+" "+this.props.name);
         if(this.props.selected){
-            console.log("i am update in");
             document.getElementById("quantity-type-main-"+this.props.name.toLowerCase()).classList.add("main-unit-active-"+this.props.name.toLowerCase());
             document.getElementById("quantity-type-main-"+this.props.name.toLowerCase()+"-logo").src=require('./../images/'+this.props.logo+'-color.svg');
         }else{

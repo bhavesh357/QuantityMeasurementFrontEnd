@@ -38,6 +38,20 @@
   color: #446DFF;
 }
 
+@media (max-width: 576px) {
+  .navbar {
+    padding: 0em 2em;
+  }
+  .sitename {
+    font-size: 24px;
+    padding: 12px 0em;
+    font-weight: 600;
+  }
+  .navbar-button {
+    font-size: 16px;
+  }
+}
+
 .app-title {
   font-family: "Montserrat", sans-serif;
   font-weight: 400;

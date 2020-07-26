@@ -7,7 +7,7 @@ class QuantityConverter extends React.Component{
         super(props);
         this.state={
             currentUnit: this.props.units[0].mainUnit,
-            selectedSubUnit: "none",
+            selectedSubUnit: null,
         };
         this.disableSubUnit=this.disableSubUnit.bind(this);
         this.handleMainUnitChange=this.handleMainUnitChange.bind(this);
@@ -38,8 +38,6 @@ class QuantityConverter extends React.Component{
 
         var units= this.props.units.map(unit => {
             
-            console.log(unit.mainUnit);
-            console.log(this.state.currentUnit);
             return (
                 this.state.currentUnit=== unit.mainUnit ? 
                 <MainUnit selected={true} key={unit.mainUnit} name={unit.mainUnit} logo={unit.logo} handleMainUnitChange={this.handleMainUnitChange}/>:
