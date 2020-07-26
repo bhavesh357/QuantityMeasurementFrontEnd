@@ -24,16 +24,22 @@ class SubUnit extends React.Component{
         console.log(this.props.disabledUnit);
     }
 
+    componentDidUpdate(){
+    }
+
     handleClick(){
         this.setState({
             isTriggered: !this.state.isTriggered,
         } );       
     }
 
+
     handleChange(){
         console.log(document.getElementById(this.props.message.toLowerCase()).children[1].value); 
         let selectedSubUnit= document.getElementById(this.props.message.toLowerCase()).children[1].value;
-        this.props.handleSubUnit(selectedSubUnit);
+        if(this.props.message==="FROM"){
+            this.props.handleSubUnit(selectedSubUnit);
+        }
     }
     
 
