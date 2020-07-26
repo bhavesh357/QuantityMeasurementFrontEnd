@@ -42,6 +42,15 @@ class SubUnit extends React.Component{
         }
         document.getElementById("quantity-type-sub-input-"+this.props.message).value="";
     }
+
+    handleInputChange(){
+        var numberPattern=/^[0-9]{1,}$/;
+        let inputNumber=document.getElementById("quantity-type-sub-input-"+this.props.message);
+        if(!numberPattern.test(inputNumber.value)){
+            inputNumber.value="";
+            inputNumber.placeholder="Enter Number";
+        }
+    }
     
 
     render(){
@@ -58,7 +67,7 @@ class SubUnit extends React.Component{
             <div className="quantity-type-sub-message">
                 {this.props.message}
             </div>
-            <input className="quantity-type-sub-input" id={"quantity-type-sub-input-"+this.props.message} />
+            <input onChange={()=>this.handleInputChange()} className="quantity-type-sub-input" id={"quantity-type-sub-input-"+this.props.message} />
             <div onClick={(time) => this.handleClick()} onChange={() => this.handleChange() } id={this.props.message.toLowerCase()} className="quantity-subUnit-container">  
                 {this.state.isTriggered ? 
                     <div className="arrow-up arrow"></div>:
