@@ -75,6 +75,21 @@
   height: 100%;
 }
 
+@media (max-width: 576px) {
+  .app-title {
+    font-size: 1.25em;
+  }
+  .app-title-name {
+    width: 100%;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+  }
+}
+
 .quantity-converter {
   width: 45%;
   margin: auto;

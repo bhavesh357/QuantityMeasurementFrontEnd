@@ -16,3 +16,14 @@
     width: 45%;
     height: 100%;
 }
+
+@media (max-width: 576px){
+    .app-title{
+        font-size: 1.25em;
+    }
+    .app-title-name{
+        width: 100%;
+        display: flex;
+        justify-content: center;
+    }
+}
