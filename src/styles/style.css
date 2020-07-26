@@ -23,7 +23,7 @@
 }
 
 .navbar-button {
-  font-size: 12px;
+  font-size: 15px;
   font-weight: 400;
   display: -webkit-box;
   display: -ms-flexbox;
@@ -38,6 +38,14 @@
   color: #446DFF;
 }
 
+.app-history {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  text-decoration: none;
+  color: #000000;
+}
+
 @media (max-width: 576px) {
   .navbar {
     padding: 0em 2em;
@@ -49,11 +57,6 @@
   }
   .navbar-button {
     font-size: 16px;
-  }
-  .app-history {
-    display: none;
-    text-decoration: none;
-    color: #000000;
   }
 }
 
