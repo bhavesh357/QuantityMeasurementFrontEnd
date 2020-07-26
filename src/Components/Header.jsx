@@ -1,4 +1,5 @@
 import React from 'react';
+import {Link} from 'react-router-dom';
 
 class Header extends React.Component{
     render(){
@@ -7,9 +8,11 @@ class Header extends React.Component{
                 <div className="sitename">
                     Quanment
                 </div>
+                <Link to={'/history'} className="app-history">
                 <div className="navbar-button" >
                     History
                 </div> 
+                </Link>
             </div>
         );
     }

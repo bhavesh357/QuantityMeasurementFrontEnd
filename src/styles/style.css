@@ -50,6 +50,11 @@
   .navbar-button {
     font-size: 16px;
   }
+  .app-history {
+    display: none;
+    text-decoration: none;
+    color: #000000;
+  }
 }
 
 .app-title {

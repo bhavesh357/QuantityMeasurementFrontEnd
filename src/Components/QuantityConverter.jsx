@@ -11,12 +11,13 @@ class QuantityConverter extends React.Component{
         };
         this.disableSubUnit=this.disableSubUnit.bind(this);
         this.handleMainUnitChange=this.handleMainUnitChange.bind(this);
+        this.handleConversion=this.handleConversion.bind(this);
     }
-
+    
     componentDidMount(){
         console.log(this.state.selectedSubUnit);
     }
-
+    
     disableSubUnit(value){
         console.log(this.state.selectedSubUnit);
         console.log(value);
@@ -25,7 +26,7 @@ class QuantityConverter extends React.Component{
         }); 
         console.log(this.state.selectedSubUnit);
     }
-
+    
     handleMainUnitChange(mainUnit){
         console.log(this.state.currentUnit);
         this.setState({
@@ -33,38 +34,60 @@ class QuantityConverter extends React.Component{
         });
         console.log(this.state.currentUnit);
     }
-
+    
+    handleConversion(){
+        let inputNumberOne=document.getElementById("quantity-type-sub-input-from").value;
+        let inputUnitOne=document.getElementById("quantity-type-sub-dropdown-from").value;
+        let inputNumberTwo=document.getElementById("quantity-type-sub-input-to").value;
+        let inputUnitTwo=document.getElementById("quantity-type-sub-dropdown-to").value;
+        if(inputNumberOne !== "" && inputNumberTwo !== ""){
+            console.log(inputUnitOne);
+            console.log(inputNumberOne);
+            console.log(inputUnitTwo);
+            console.log(inputNumberTwo);
+            console.log(this.state.currentUnit);
+            var conversion={
+                mainUnit: this.state.currentUnit,
+                subUnitOne: inputUnitOne,
+                numberOne: inputNumberOne,
+                subUnitTwo: inputUnitTwo,
+                numberTwo: inputNumberTwo
+            }
+            this.props.sendConversion(conversion);
+        }
+    }
+    
     render(){
-
+        
         var units= this.props.units.map(unit => {
             
             return (
                 this.state.currentUnit=== unit.mainUnit ? 
                 <MainUnit selected={true} key={unit.mainUnit} name={unit.mainUnit} logo={unit.logo} handleMainUnitChange={this.handleMainUnitChange}/>:
                 <MainUnit selected={false} key={unit.mainUnit} name={unit.mainUnit} logo={unit.logo} handleMainUnitChange={this.handleMainUnitChange}/>
-            );
-        })
-
-        var unit=this.props.units.filter( e => {
-            return e.mainUnit===this.state.currentUnit
-        });
-
-        return (
-            <div className="quantity-converter">
+                );
+            })
+            
+            var unit=this.props.units.filter( e => {
+                return e.mainUnit===this.state.currentUnit
+            });
+            
+            return (
+                <div className="quantity-converter">
                 <div className="quantity-type">
-                    CHOOSE TYPE
+                CHOOSE TYPE
                 </div>
                 <div className="quantity-units">
-                    {units}
+                {units}
                 </div>
                 <div className="quantity-sub-units">
-                    <SubUnit message="FROM" subUnits={unit[0].subUnits} handleSubUnit={this.disableSubUnit} disabledUnit=""/>
-                    <SubUnit message="TO" subUnits={unit[0].subUnits} handleSubUnit={this.disableSubUnit} disabledUnit={this.state.selectedSubUnit} />
+                <SubUnit message="FROM" subUnits={unit[0].subUnits} handleSubUnit={this.disableSubUnit} disabledUnit="" handleConversion={this.handleConversion}/>
+                <SubUnit message="TO" subUnits={unit[0].subUnits} handleSubUnit={this.disableSubUnit} disabledUnit={this.state.selectedSubUnit} handleConversion={this.handleConversion}/>
                 </div>
                 
-            </div>
-        );
-    }
-}
-
-export default QuantityConverter;
+                </div>
+                );
+            }
+        }
+        
+        export default QuantityConverter;

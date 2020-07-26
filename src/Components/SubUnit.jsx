@@ -3,8 +3,6 @@ import React from 'react';
 class SubUnit extends React.Component{
     constructor(props){
         super(props);
-        console.log(this.props.message)
-        console.log(this.props.disabledUnit);
         if(this.props.disabledUnit===""){
             this.props.handleSubUnit(this.props.subUnits[0]);
         }
@@ -40,15 +38,19 @@ class SubUnit extends React.Component{
         if(this.props.message==="FROM"){
             this.props.handleSubUnit(selectedSubUnit);
         }
-        document.getElementById("quantity-type-sub-input-"+this.props.message).value="";
+        document.getElementById("quantity-type-sub-input-"+this.props.message.toLowerCase()).value="";
     }
 
     handleInputChange(){
         var numberPattern=/^[0-9]{1,}$/;
-        let inputNumber=document.getElementById("quantity-type-sub-input-"+this.props.message);
+        let inputNumber=document.getElementById("quantity-type-sub-input-"+this.props.message.toLowerCase());
         if(!numberPattern.test(inputNumber.value)){
             inputNumber.value="";
             inputNumber.placeholder="Enter Number";
+        }else{
+            console.log(document.getElementById("quantity-type-sub-dropdown-"+this.props.message.toLowerCase()).value);
+            console.log(inputNumber.value);
+            this.props.handleConversion();
         }
     }
     
@@ -67,13 +69,13 @@ class SubUnit extends React.Component{
             <div className="quantity-type-sub-message">
                 {this.props.message}
             </div>
-            <input onChange={()=>this.handleInputChange()} className="quantity-type-sub-input" id={"quantity-type-sub-input-"+this.props.message} />
+            <input onChange={()=>this.handleInputChange()} className="quantity-type-sub-input" id={"quantity-type-sub-input-"+this.props.message.toLowerCase()} />
             <div onClick={(time) => this.handleClick()} onChange={() => this.handleChange() } id={this.props.message.toLowerCase()} className="quantity-subUnit-container">  
                 {this.state.isTriggered ? 
                     <div className="arrow-up arrow"></div>:
                         <div className="arrow-down arrow"></div>
             }
-            <select className="quantity-type-sub-dropdown">
+            <select className="quantity-type-sub-dropdown" id={"quantity-type-sub-dropdown-"+this.props.message.toLowerCase()}>
                 {list}
             </select>
             </div>
