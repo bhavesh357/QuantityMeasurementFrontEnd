@@ -40,6 +40,7 @@ class SubUnit extends React.Component{
         if(this.props.message==="FROM"){
             this.props.handleSubUnit(selectedSubUnit);
         }
+        document.getElementById("quantity-type-sub-input-"+this.props.message).value="";
     }
     
 
@@ -57,7 +58,7 @@ class SubUnit extends React.Component{
             <div className="quantity-type-sub-message">
                 {this.props.message}
             </div>
-            <input className="quantity-type-sub-input" />
+            <input className="quantity-type-sub-input" id={"quantity-type-sub-input-"+this.props.message} />
             <div onClick={(time) => this.handleClick()} onChange={() => this.handleChange() } id={this.props.message.toLowerCase()} className="quantity-subUnit-container">  
                 {this.state.isTriggered ? 
                     <div className="arrow-up arrow"></div>:
