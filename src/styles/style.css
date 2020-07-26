@@ -77,7 +77,7 @@
 
 @media (max-width: 576px) {
   .app-title {
-    font-size: 1.25em;
+    font-size: 1.1em;
   }
   .app-title-name {
     width: 100%;
@@ -187,6 +187,18 @@
 
 .logo {
   padding: 2em 0em 0em;
+}
+
+@media (max-width: 576px) {
+  .quantity-type-main-name {
+    padding: 0.5em 0em;
+    font-size: 12px;
+  }
+  .logo {
+    padding: 1em 0em 0em;
+    height: 2.5em;
+    width: 2.5em;
+  }
 }
 
 .quantity-sub-units {
