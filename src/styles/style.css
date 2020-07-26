@@ -97,10 +97,6 @@
   font-family: "Montserrat", sans-serif;
 }
 
-.svg-icons {
-  display: none;
-}
-
 .quantity-type {
   font-family: "Montserrat", sans-serif;
   font-weight: 500;
@@ -116,9 +112,11 @@
           justify-content: space-between;
 }
 
-.icon {
-  width: 50px;
-  height: 85px;
+@media (max-width: 576px) {
+  .quantity-converter {
+    width: 90%;
+    padding: 2em 0em;
+  }
 }
 
 .quantity-type-main {
