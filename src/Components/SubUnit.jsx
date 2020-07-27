@@ -18,10 +18,6 @@ class SubUnit extends React.Component{
     }
 
 
-    componentWillUpdate(){
-        
-    }
-
     componentDidMount(){
         console.log("I am subunit component did mount");
         this.handleChange();
@@ -32,6 +28,13 @@ class SubUnit extends React.Component{
         console.log("I am subunit component did update");
         console.log(this.props.disabledUnit);
         console.log(this.state.selectedSubSubUnit);
+        var dropdown=document.getElementById("quantity-type-sub-dropdown-"+this.props.message.toLowerCase());
+        for(let i=0;i<this.props.subUnits.length;i++){
+            if(this.props.subUnits[i]!==this.props.disabledUnit){
+                dropdown.value=this.props.subUnits[i];
+                break;
+            }
+        }
     }
 
     handleClick(){
@@ -71,7 +74,7 @@ class SubUnit extends React.Component{
             return (
                 this.props.disabledUnit===unit ? 
                 <option className="sub-unit-option" disabled key={unit} value={unit}>{unit}</option>:
-                <option className="sub-unit-option" selected key={unit} value={unit}>{unit}</option>
+                <option className="sub-unit-option" key={unit} value={unit}>{unit}</option>
             );
         })
         return (
