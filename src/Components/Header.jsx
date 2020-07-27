@@ -5,9 +5,9 @@ class Header extends React.Component{
     render(){
         return (
             <div className="navbar">
-                <div className="sitename">
+                <Link to={'/'} className="sitename">
                     Quanment
-                </div>
+                </Link>
                 <Link to={'/history'} className="app-history">
                 <div className="navbar-button" >
                     History

@@ -4,6 +4,7 @@
 @import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;700&family=Poppins:wght@400;600&family=Roboto:wght@500&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;700&family=Poppins:wght@400;600&family=Roboto:wght@500&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;700&family=Poppins:wght@400;600&family=Roboto:wght@500&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;700&family=Poppins:wght@400;600&family=Roboto:wght@500&display=swap");
 .navbar {
   display: -webkit-box;
   display: -ms-flexbox;
@@ -20,6 +21,8 @@
   font-size: 21px;
   padding: 16px 0em;
   font-weight: 600;
+  text-decoration: none;
+  color: #000000;
 }
 
 .navbar-button {
@@ -44,6 +47,10 @@
   display: flex;
   text-decoration: none;
   color: #000000;
+}
+
+.app-history:focus {
+  outline: none;
 }
 
 @media (max-width: 576px) {
@@ -302,6 +309,83 @@
   .quantity-type-sub-input {
     font-size: 30px;
   }
+}
+
+.history {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  font-family: "Montserrat", sans-serif;
+  width: 80%;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  padding: 1em 0em;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  margin: 3em auto;
+  background: #ffffff;
+}
+
+.history-title {
+  width: 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  padding: 0em 0em;
+  font-size: 2em;
+  margin: 0em 0em 1em 0em;
+  font-weight: 500;
+}
+
+.history-list {
+  width: 80%;
+}
+
+.history-list-head {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  width: 100%;
+  padding: 0em 0em;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+
+.history-list-items {
+  width: 100%;
+  padding-bottom: 2em;
+}
+
+.history-list-item {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  width: 100%;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+
+.history-list-item-column {
+  width: 20%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  padding: 1em 0em;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  border: #F5F6FA solid 1px;
 }
 
 body {

@@ -54,11 +54,6 @@ class QuantityConverter extends React.Component{
         let inputNumberTwo=document.getElementById("quantity-type-sub-input-to").value;
         let inputUnitTwo=document.getElementById("quantity-type-sub-dropdown-to").value;
         if(inputNumberOne !== "" && inputNumberTwo !== ""){
-            console.log(inputUnitOne);
-            console.log(inputNumberOne);
-            console.log(inputUnitTwo);
-            console.log(inputNumberTwo);
-            console.log(this.state.currentUnit);
             var conversion={
                 mainUnit: this.state.currentUnit,
                 subUnitOne: inputUnitOne,

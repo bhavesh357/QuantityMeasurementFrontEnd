@@ -12,6 +12,8 @@
     font-size: 21px;
     padding: 16px 0em;
     font-weight: 600;
+    text-decoration: none;
+    color: $primary-text;
 }
 
 .navbar-button{
@@ -29,7 +31,9 @@
     display: flex;
     text-decoration: none;
     color: $primary-text;
-
+    &:focus{
+        outline: none;
+    }
 }
 
 @media (max-width: 576px){

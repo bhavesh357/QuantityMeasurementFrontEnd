@@ -2,6 +2,7 @@ import React from 'react';
 import Header from './Header';
 import AppTitle from './AppTitle';
 import QuantityConverter from './QuantityConverter';
+import History from './History';
 import './../styles/style.css';
 import {BrowserRouter as Router,Switch,Route} from 'react-router-dom';
 
@@ -52,6 +53,10 @@ class App extends React.Component{
               <AppTitle title="Welcome to Quantity Measurement"/>
               <QuantityConverter units={units} sendConversion={this.handleConversion}/>
           </div>}>
+      </Route>
+      <Route path="/history" exact render={() =>
+          <History history={this.state.conversions} />
+          }>
       </Route>
       </Switch>
       </div>
