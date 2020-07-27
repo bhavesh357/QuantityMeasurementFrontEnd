@@ -50,3 +50,15 @@
     justify-content: center;
     border: $background-color solid 1px;
 }
+
+@media (max-width:576px){
+    .history{
+        width: 100%;
+    }
+
+    .history-list{
+        width: 95%;
+        margin: 0em 2em;
+        font-size: 0.6em;
+    }
+}
