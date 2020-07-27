@@ -5,6 +5,7 @@ import QuantityConverter from './QuantityConverter';
 import History from './History';
 import './../styles/style.css';
 import {BrowserRouter as Router,Switch,Route} from 'react-router-dom';
+import Axios from 'axios';
 
 var units=[{
   mainUnit:"Length",
@@ -20,6 +21,7 @@ var units=[{
   subUnits:["Litre","Mililitre","Gallon"]
 }]
 
+
 class App extends React.Component{
   constructor(props){
     super(props);
@@ -27,6 +29,12 @@ class App extends React.Component{
       conversions: [],
     }
     this.handleConversion=this.handleConversion.bind(this);
+  }
+
+  componentDidMount(){
+    Axios.get('/').then( res => {
+      console.log(res);
+    })
   }
   
   handleConversion(conversion){
