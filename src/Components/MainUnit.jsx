@@ -17,6 +17,7 @@ class MainUnit extends React.Component{
 
     componentDidUpdate(){
         if(this.props.selected){
+            console.log(this.props.name);
             document.getElementById("quantity-type-main-"+this.props.name.toLowerCase()).classList.add("main-unit-active-"+this.props.name.toLowerCase());
             document.getElementById("quantity-type-main-"+this.props.name.toLowerCase()+"-logo").src=require('./../images/'+this.props.logo+'-color.svg');
         }else{

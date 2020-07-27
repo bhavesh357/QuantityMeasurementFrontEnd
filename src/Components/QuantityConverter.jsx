@@ -17,6 +17,14 @@ class QuantityConverter extends React.Component{
     componentDidMount(){
         console.log(this.state.selectedSubUnit);
     }
+
+    componentWillUpdate(){
+        console.log(this.state.currentUnit);
+    }
+
+    componentDidUpdate(){
+        console.log(this.state.currentUnit);
+    }
     
     disableSubUnit(value){
         console.log(this.state.selectedSubUnit);
@@ -24,6 +32,7 @@ class QuantityConverter extends React.Component{
         this.setState({
             selectedSubUnit: value,
         }); 
+        
         console.log(this.state.selectedSubUnit);
     }
     
@@ -32,6 +41,14 @@ class QuantityConverter extends React.Component{
         this.setState({
             currentUnit: mainUnit,
         });
+        var unit=this.props.units.filter( e => {
+            return e.mainUnit===mainUnit
+        });
+        console.log(unit[0].subUnits[0]);
+        this.setState({
+            selectedSubUnit: unit[0].subUnits[1],
+        });
+        console.log(this.state.selectedSubUnit);
         console.log(this.state.currentUnit);
     }
     
@@ -71,6 +88,8 @@ class QuantityConverter extends React.Component{
             var unit=this.props.units.filter( e => {
                 return e.mainUnit===this.state.currentUnit
             });
+
+            
             
             return (
                 <div className="quantity-converter">

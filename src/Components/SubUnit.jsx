@@ -3,12 +3,13 @@ import React from 'react';
 class SubUnit extends React.Component{
     constructor(props){
         super(props);
-        if(this.props.disabledUnit===""){
+        if(this.props.disabledUnit===null){
             this.props.handleSubUnit(this.props.subUnits[0]);
         }
         var random=this.props.subUnits.filter(unit => {
             return unit!==this.props.disabledUnit;
         })
+        console.log("I am in constructor");
         console.log(random);
         this.state={
             isTriggered: false,
@@ -16,13 +17,21 @@ class SubUnit extends React.Component{
         }
     }
 
+
+    componentWillUpdate(){
+        
+    }
+
     componentDidMount(){
-        console.log("I am subunit");
+        console.log("I am subunit component did mount");
         this.handleChange();
         console.log(this.props.disabledUnit);
     }
 
     componentDidUpdate(){
+        console.log("I am subunit component did update");
+        console.log(this.props.disabledUnit);
+        console.log(this.state.selectedSubSubUnit);
     }
 
     handleClick(){
@@ -36,6 +45,7 @@ class SubUnit extends React.Component{
         console.log(document.getElementById(this.props.message.toLowerCase()).children[1].value); 
         let selectedSubUnit= document.getElementById(this.props.message.toLowerCase()).children[1].value;
         if(this.props.message==="FROM"){
+            console.log("I am in handle change of sub unit");
             this.props.handleSubUnit(selectedSubUnit);
         }
         document.getElementById("quantity-type-sub-input-"+this.props.message.toLowerCase()).value="";
