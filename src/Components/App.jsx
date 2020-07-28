@@ -5,7 +5,7 @@ import QuantityConverter from './QuantityConverter';
 import History from './History';
 import './../styles/style.css';
 import {BrowserRouter as Router,Switch,Route} from 'react-router-dom';
-import Axios from 'axios';
+import api from './../Service/quantityconvrter'
 
 var units=[{
   mainUnit:"Length",
@@ -13,7 +13,7 @@ var units=[{
   subUnits:["Meter","Centimeter","Feet","Yard"]
 },{
   mainUnit:"Temperature",
-  logo: "temp",
+  logo: "temperature",
   subUnits:["Celcius","Farenheit"]
 },{
   mainUnit:"Volume",
@@ -31,10 +31,41 @@ class App extends React.Component{
     this.handleConversion=this.handleConversion.bind(this);
   }
 
-  componentDidMount(){
-    Axios.get('/').then( res => {
-      console.log(res);
-    })
+  capitalize = (s) => {
+    if (typeof s !== 'string') return ''
+    return s.charAt(0) + s.slice(1).toLowerCase();
+  }
+
+  async getSubUnits(mainUnit){
+    await api.get('/unit?mainUnit='+mainUnit)
+        .then(res => {
+          console.log(res.data.object);
+          return res.data.object;
+        });
+  }
+  
+  async componentDidMount(){
+    let unitsTwo=[];
+    let mainUnits=[];
+    await api.get('/')
+    .then( res => {
+      console.log(res.data.object);
+      mainUnits=res.data.object;
+    });
+    
+    console.log("I am mounted");
+    console.log(mainUnits);
+    let newMainUnits=mainUnits.map(mainUnit => {
+      let newMainUnit={
+        
+        mainUnit: this.capitalize(mainUnit),
+        logo: mainUnit.toLowerCase(),
+        subUnits:this.getSubUnits(mainUnit)
+      }
+      return newMainUnit;
+    });
+    console.log(newMainUnits);
+    console.log(unitsTwo);
   }
   
   handleConversion(conversion){
@@ -57,21 +88,21 @@ class App extends React.Component{
       <Header />
       <Switch>
       <Route path="/" exact render={() =>
-          <div className="conversion-app"> 
-              <AppTitle title="Welcome to Quantity Measurement"/>
-              <QuantityConverter units={units} sendConversion={this.handleConversion}/>
-          </div>}>
-      </Route>
-      <Route path="/history" exact render={() =>
+        <div className="conversion-app"> 
+        <AppTitle title="Welcome to Quantity Measurement"/>
+        <QuantityConverter units={units} sendConversion={this.handleConversion}/>
+        </div>}>
+        </Route>
+        <Route path="/history" exact render={() =>
           <History history={this.state.conversions} />
-          }>
-      </Route>
-      </Switch>
-      </div>
-      </Router>
-      );
+        }>
+        </Route>
+        </Switch>
+        </div>
+        </Router>
+        );
+      }
     }
-  }
-  
-  export default App;
-  
+    
+    export default App;
+    
