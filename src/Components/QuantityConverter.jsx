@@ -5,6 +5,7 @@ import SubUnit from './SubUnit';
 class QuantityConverter extends React.Component{
     constructor(props){
         super(props);
+        console.log(this.props.units);
         this.state={
             currentUnit: this.props.units[0].mainUnit,
             selectedSubUnit: null,

@@ -27,45 +27,63 @@ class App extends React.Component{
     super(props);
     this.state={
       conversions: [],
+      units: units,
     }
     this.handleConversion=this.handleConversion.bind(this);
   }
-
+  
   capitalize = (s) => {
     if (typeof s !== 'string') return ''
     return s.charAt(0) + s.slice(1).toLowerCase();
   }
-
+  
   async getSubUnits(mainUnit){
-    await api.get('/unit?mainUnit='+mainUnit)
-        .then(res => {
-          console.log(res.data.object);
-          return res.data.object;
-        });
+    
+  }
+
+  async getAllUnits(mainUnits){
+    let newList=[];
+    for(let i=0;i<mainUnits.length;i++){
+      let element=mainUnits[i];
+      console.log(element);
+      let newMainUnit={
+        mainUnit: this.capitalize(element),
+        logo: element.toLowerCase(),
+        subUnits: []
+      }
+      var subUnitList=await api.get('/unit?mainUnit='+element)
+      .then(res => {
+        console.log(res.data.object);
+        return res.data.object;
+      });
+      newMainUnit.subUnits= subUnitList;
+      newList.push(newMainUnit);
+    }
+    console.log(newList);
+    return newList;
   }
   
   async componentDidMount(){
-    let unitsTwo=[];
-    let mainUnits=[];
-    await api.get('/')
+    console.log("Component did mount");
+    let mainUnits = await api.get('/')
     .then( res => {
-      console.log(res.data.object);
-      mainUnits=res.data.object;
-    });
-    
-    console.log("I am mounted");
+      console.log("getting data");
+      return res.data.object
+     });
     console.log(mainUnits);
-    let newMainUnits=mainUnits.map(mainUnit => {
-      let newMainUnit={
-        
-        mainUnit: this.capitalize(mainUnit),
-        logo: mainUnit.toLowerCase(),
-        subUnits:this.getSubUnits(mainUnit)
-      }
-      return newMainUnit;
+    let newMainUnits= await this.getAllUnits(mainUnits).then( res=> {
+      console.log(res);
+      return res;
     });
     console.log(newMainUnits);
-    console.log(unitsTwo);
+    console.log("Component did mount");
+    this.setState({
+      units: newMainUnits,
+    })
+  }
+  
+  componentDidUpdate(){
+    console.log(this.state.units);
   }
   
   handleConversion(conversion){
@@ -90,7 +108,7 @@ class App extends React.Component{
       <Route path="/" exact render={() =>
         <div className="conversion-app"> 
         <AppTitle title="Welcome to Quantity Measurement"/>
-        <QuantityConverter units={units} sendConversion={this.handleConversion}/>
+        <QuantityConverter units={this.state.units} sendConversion={this.handleConversion}/>
         </div>}>
         </Route>
         <Route path="/history" exact render={() =>
