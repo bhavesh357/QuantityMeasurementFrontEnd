@@ -49,6 +49,18 @@
     }
 }
 
+.main-unit-active-weight{
+
+    border: #0bbcdb solid 1px;
+    background: #9bffdb;
+    box-shadow: 0px 3px 6px #00000029;
+    .quantity-type-main-name{
+        font-weight: 700;
+        color: #0bbcdb;
+        opacity: 100%;
+    }
+}
+
 .quantity-type-main-name{
     padding: 1em;
     font-size: 15px;
