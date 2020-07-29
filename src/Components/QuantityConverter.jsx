@@ -23,6 +23,7 @@ class QuantityConverter extends React.Component{
 
     componentDidUpdate(){
         console.log(this.state.currentUnit);
+        
     }
     
     disableSubUnit(value){
@@ -49,6 +50,12 @@ class QuantityConverter extends React.Component{
         });
         console.log(this.state.selectedSubUnit);
         console.log(this.state.currentUnit);
+        let inputs=document.getElementsByClassName("quantity-type-sub-input");
+        console.log(inputs);
+        Array.from(inputs).forEach(element => {
+            console.log(element);
+            element.value="";
+        });
     }
     
     async handleConversion(){
