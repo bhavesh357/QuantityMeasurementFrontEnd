@@ -1,6 +1,7 @@
 import React from 'react';
 import MainUnit from './MainUnit';
 import SubUnit from './SubUnit';
+import api from '../Service/quantityservice'
 
 class QuantityConverter extends React.Component{
     constructor(props){
@@ -15,8 +16,19 @@ class QuantityConverter extends React.Component{
         this.handleConversion=this.handleConversion.bind(this);
     }
     
-    componentDidMount(){
+    async componentDidMount(){
         console.log(this.state.selectedSubUnit);
+        var quantity={
+            mainUnit:"LENGTH",
+            unitOne: "FEET",
+            sizeOne:1,
+            unitTwo:"INCH",
+            sizeTwo: 0
+        };
+        var test=await api.post('/unit',quantity).then( res => {
+            return res;
+        });
+        console.log(test);
     }
 
     componentDidUpdate(){
