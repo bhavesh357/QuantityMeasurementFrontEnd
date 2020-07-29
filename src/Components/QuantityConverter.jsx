@@ -18,17 +18,7 @@ class QuantityConverter extends React.Component{
     
     async componentDidMount(){
         console.log(this.state.selectedSubUnit);
-        var quantity={
-            mainUnit:"LENGTH",
-            unitOne: "FEET",
-            sizeOne:1,
-            unitTwo:"INCH",
-            sizeTwo: 0
-        };
-        var test=await api.post('/unit',quantity).then( res => {
-            return res;
-        });
-        console.log(test);
+        
     }
 
     componentDidUpdate(){
@@ -61,18 +51,31 @@ class QuantityConverter extends React.Component{
         console.log(this.state.currentUnit);
     }
     
-    handleConversion(){
+    async handleConversion(){
         let inputNumberOne=document.getElementById("quantity-type-sub-input-from").value;
         let inputUnitOne=document.getElementById("quantity-type-sub-dropdown-from").value;
         let inputNumberTwo=document.getElementById("quantity-type-sub-input-to").value;
         let inputUnitTwo=document.getElementById("quantity-type-sub-dropdown-to").value;
+        var quantity={
+            mainUnit:this.state.currentUnit.toUpperCase(),
+            unitOne: inputUnitOne,
+            sizeOne:parseFloat(inputNumberOne),
+            unitTwo:inputUnitTwo,
+            sizeTwo: 0
+        };
+        console.log(quantity);
+        var testOne=await api.post('/unit',quantity).then( res => {
+            return res;
+        });
+        console.log(testOne.data.object);
+
         if(inputNumberOne !== "" && inputNumberTwo !== ""){
             var conversion={
                 mainUnit: this.state.currentUnit,
-                subUnitOne: inputUnitOne,
-                numberOne: inputNumberOne,
-                subUnitTwo: inputUnitTwo,
-                numberTwo: inputNumberTwo
+                unitOne: inputUnitOne,
+                sizeOne: inputNumberOne,
+                unitTwo: inputUnitTwo,
+                sizeTwo: inputNumberTwo
             }
             this.props.sendConversion(conversion);
         }
