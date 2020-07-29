@@ -54,30 +54,24 @@ class QuantityConverter extends React.Component{
     async handleConversion(){
         let inputNumberOne=document.getElementById("quantity-type-sub-input-from").value;
         let inputUnitOne=document.getElementById("quantity-type-sub-dropdown-from").value;
-        let inputNumberTwo=document.getElementById("quantity-type-sub-input-to").value;
-        let inputUnitTwo=document.getElementById("quantity-type-sub-dropdown-to").value;
-        var quantity={
-            mainUnit:this.state.currentUnit.toUpperCase(),
-            unitOne: inputUnitOne,
-            sizeOne:parseFloat(inputNumberOne),
-            unitTwo:inputUnitTwo,
-            sizeTwo: 0
-        };
-        console.log(quantity);
-        var testOne=await api.post('/unit',quantity).then( res => {
-            return res;
-        });
-        console.log(testOne.data.object);
+        /* let inputNumberTwo=document.getElementById("quantity-type-sub-input-to").value;
+         */let inputUnitTwo=document.getElementById("quantity-type-sub-dropdown-to").value;
+        
 
-        if(inputNumberOne !== "" && inputNumberTwo !== ""){
-            var conversion={
-                mainUnit: this.state.currentUnit,
+        if(inputNumberOne !== ""){
+            var quantity={
+                mainUnit:this.state.currentUnit.toUpperCase(),
                 unitOne: inputUnitOne,
-                sizeOne: inputNumberOne,
-                unitTwo: inputUnitTwo,
-                sizeTwo: inputNumberTwo
-            }
-            this.props.sendConversion(conversion);
+                sizeOne:parseFloat(inputNumberOne),
+                unitTwo:inputUnitTwo,
+                sizeTwo: 0
+            };
+            console.log(quantity);
+            var testOne=await api.post('/unit',quantity).then( res => {
+                return res.data.object;
+            });
+            console.log(testOne);
+            this.props.sendConversion(testOne);
         }
     }
     

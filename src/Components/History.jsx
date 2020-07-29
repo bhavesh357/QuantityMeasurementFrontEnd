@@ -10,16 +10,16 @@ class History extends React.Component{
                         {conversion.mainUnit}
                     </div>
                     <div className="history-list-item-column sub-unit-column">
-                        {conversion.subUnitOne}
+                        {conversion.unitOne}
                     </div>
                     <div className="history-list-item-column number-unit-column">
-                        {conversion.numberOne}
+                        {conversion.sizeOne}
                     </div>
                     <div className="history-list-item-column sub-unit-column">
-                        {conversion.subUnitTwo}
+                        {conversion.unitTwo}
                     </div>
                     <div className="history-list-item-column number-unit-column">
-                        {conversion.numberTwo}
+                        {conversion.sizeTwo}
                     </div>
                 </div>
             );
