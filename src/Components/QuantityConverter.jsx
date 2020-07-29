@@ -58,11 +58,20 @@ class QuantityConverter extends React.Component{
         });
     }
     
-    async handleConversion(){
-        let inputNumberOne=document.getElementById("quantity-type-sub-input-from").value;
-        let inputUnitOne=document.getElementById("quantity-type-sub-dropdown-from").value;
-        /* let inputNumberTwo=document.getElementById("quantity-type-sub-input-to").value;
-         */let inputUnitTwo=document.getElementById("quantity-type-sub-dropdown-to").value;
+    async handleConversion(flag){
+        console.log(flag);
+        let inputNumberOne;
+        let inputUnitOne;
+        let inputUnitTwo;
+        if(flag){
+            inputNumberOne=document.getElementById("quantity-type-sub-input-to").value;
+            inputUnitOne=document.getElementById("quantity-type-sub-dropdown-to").value;
+            inputUnitTwo=document.getElementById("quantity-type-sub-dropdown-from").value;
+        }else{
+            inputNumberOne= document.getElementById("quantity-type-sub-input-from").value;
+            inputUnitOne=document.getElementById("quantity-type-sub-dropdown-from").value;
+            inputUnitTwo=document.getElementById("quantity-type-sub-dropdown-to").value;
+        }
         
 
         if(inputNumberOne !== ""){
@@ -79,6 +88,8 @@ class QuantityConverter extends React.Component{
             });
             console.log(testOne);
             this.props.sendConversion(testOne);
+            flag ? 
+            document.getElementById("quantity-type-sub-input-from").value=testOne.sizeTwo:
             document.getElementById("quantity-type-sub-input-to").value=testOne.sizeTwo;
         }
     }

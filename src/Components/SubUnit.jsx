@@ -77,7 +77,7 @@ class SubUnit extends React.Component{
         }else{
             console.log(document.getElementById("quantity-type-sub-dropdown-"+this.props.message.toLowerCase()).value);
             console.log(inputNumber.value);
-            this.props.handleConversion();
+            this.props.handleConversion(this.props.message==="TO");
         }
     }
     
