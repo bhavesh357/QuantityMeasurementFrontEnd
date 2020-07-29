@@ -10,15 +10,15 @@ import api from './../Service/quantityconvrter'
 var units=[{
   mainUnit:"Length",
   logo: "length",
-  subUnits:["Meter","Centimeter","Feet","Yard"]
+  subUnits:["FEET", "INCH", "CM", "YARD"]
 },{
   mainUnit:"Temperature",
   logo: "temperature",
-  subUnits:["Celcius","Farenheit"]
+  subUnits:["F", "C"]
 },{
   mainUnit:"Volume",
   logo: "volume",
-  subUnits:["Litre","Mililitre","Gallon"]
+  subUnits:["ML", "LITRE", "GALLON"]
 }]
 
 
