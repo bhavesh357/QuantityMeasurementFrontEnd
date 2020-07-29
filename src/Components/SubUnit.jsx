@@ -66,7 +66,7 @@ class SubUnit extends React.Component{
     }
     
     handleInputChange(){
-        var numberPattern=/^[0-9]{1,}$/;
+        var numberPattern=/^[0-9]{1,}.?[0-9]{0,}$/;
         let inputNumber=document.getElementById("quantity-type-sub-input-"+this.props.message.toLowerCase());
         if(!numberPattern.test(inputNumber.value)){
             inputNumber.value="";
