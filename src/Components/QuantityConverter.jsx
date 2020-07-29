@@ -72,6 +72,7 @@ class QuantityConverter extends React.Component{
             });
             console.log(testOne);
             this.props.sendConversion(testOne);
+            document.getElementById("quantity-type-sub-input-to").value=testOne.sizeTwo;
         }
     }
     
