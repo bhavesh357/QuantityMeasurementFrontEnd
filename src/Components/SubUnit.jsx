@@ -26,16 +26,23 @@ class SubUnit extends React.Component{
     
     componentDidUpdate(){
         console.log("I am subunit component did update");
+        console.log(document.getElementById(this.props.message.toLowerCase()).children[1].value);
+        var value = document.getElementById(this.props.message.toLowerCase()).children[1].value;
         console.log(this.props.disabledUnit);
         console.log(this.state.selectedSubSubUnit);
         console.log(this.props.message);
+        var dropdown=document.getElementById("quantity-type-sub-dropdown-"+this.props.message.toLowerCase());
         if(this.props.disabledUnit!=="" && this.props.message==="TO" ){
-            var dropdown=document.getElementById("quantity-type-sub-dropdown-"+this.props.message.toLowerCase());
-            for(let i=0;i<this.props.subUnits.length;i++){
-                if(this.props.subUnits[i]!==this.props.disabledUnit){
-                    console.log(this.props.subUnits[i]);
-                    dropdown.value=this.props.subUnits[i];
-                    break;
+            if(value!==this.props.disabledUnit && value!==undefined){
+                console.log(value);
+                dropdown.value=value;
+            }else{
+                for(let i=0;i<this.props.subUnits.length;i++){
+                    if(this.props.subUnits[i]!==this.props.disabledUnit){
+                        console.log(this.props.subUnits[i]);
+                        dropdown.value=this.props.subUnits[i];
+                        break;
+                    }
                 }
             }
         }
