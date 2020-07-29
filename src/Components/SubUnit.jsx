@@ -63,12 +63,15 @@ class SubUnit extends React.Component{
             this.props.handleSubUnit(selectedSubUnit);
         }
         document.getElementById("quantity-type-sub-input-"+this.props.message.toLowerCase()).value="";
+        this.handleInputChange(true);
     }
     
-    handleInputChange(){
-        var numberPattern=/^[0-9]{1,}.?[0-9]{0,}$/;
+    handleInputChange(flag){
+        console.log(flag);
+        var numberPattern=/^[0-9]{1,}[.]?[0-9]{0,}$/;
         let inputNumber=document.getElementById("quantity-type-sub-input-"+this.props.message.toLowerCase());
-        if(!numberPattern.test(inputNumber.value)){
+        if(!numberPattern.test(inputNumber.value) && !flag){
+            console.log("I am not converted");
             inputNumber.value="";
             inputNumber.placeholder="Enter Number";
         }else{
@@ -93,7 +96,7 @@ class SubUnit extends React.Component{
                 <div className="quantity-type-sub-message">
                 {this.props.message}
                 </div>
-                <input onChange={()=>this.handleInputChange()} className="quantity-type-sub-input" id={"quantity-type-sub-input-"+this.props.message.toLowerCase()} />
+                <input onChange={()=>this.handleInputChange(false)} className="quantity-type-sub-input" id={"quantity-type-sub-input-"+this.props.message.toLowerCase()} />
                 <div onClick={(time) => this.handleClick()} onChange={() => this.handleChange() } id={this.props.message.toLowerCase()} className="quantity-subUnit-container">  
                 {this.state.isTriggered ? 
                     <div className="arrow-up arrow"></div>:
