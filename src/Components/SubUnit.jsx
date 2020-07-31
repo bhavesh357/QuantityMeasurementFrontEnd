@@ -69,6 +69,11 @@ class SubUnit extends React.Component{
     handleInputChange(flag){
         console.log(flag);
         var numberPattern=/^[0-9]{1,}[.]?[0-9]{0,}$/;
+        console.log(this.props.currentUnit);
+        if(this.props.currentUnit==="Temperature"){
+            console.log(this.props.currentUnit);
+            numberPattern=/^[-]?[0-9]{0,}?[.]?[0-9]{0,}$/;
+        }
         let inputNumber=document.getElementById("quantity-type-sub-input-"+this.props.message.toLowerCase());
         if(!numberPattern.test(inputNumber.value) && !flag){
             console.log("I am not converted");
@@ -77,7 +82,9 @@ class SubUnit extends React.Component{
         }else{
             console.log(document.getElementById("quantity-type-sub-dropdown-"+this.props.message.toLowerCase()).value);
             console.log(inputNumber.value);
-            this.props.handleConversion(this.props.message==="TO");
+            if(inputNumber.value!=="-"){
+                this.props.handleConversion(this.props.message==="TO");
+            }
         }
     }
     

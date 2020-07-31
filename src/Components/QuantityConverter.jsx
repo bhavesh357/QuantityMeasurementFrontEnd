@@ -23,7 +23,7 @@ class QuantityConverter extends React.Component{
 
     componentDidUpdate(){
         console.log(this.state.currentUnit);
-        
+        document.getElementById("quantity-type-sub-input-from").focus();
     }
     
     disableSubUnit(value){
@@ -120,8 +120,8 @@ class QuantityConverter extends React.Component{
                 {units}
                 </div>
                 <div className="quantity-sub-units">
-                <SubUnit message="FROM" subUnits={unit[0].subUnits} handleSubUnit={this.disableSubUnit} disabledUnit="" handleConversion={this.handleConversion}/>
-                <SubUnit message="TO" subUnits={unit[0].subUnits} handleSubUnit={this.disableSubUnit} disabledUnit={this.state.selectedSubUnit} handleConversion={this.handleConversion}/>
+                <SubUnit message="FROM" subUnits={unit[0].subUnits} handleSubUnit={this.disableSubUnit} disabledUnit="" handleConversion={this.handleConversion} currentUnit={this.state.currentUnit}/>
+                <SubUnit message="TO" subUnits={unit[0].subUnits} handleSubUnit={this.disableSubUnit} disabledUnit={this.state.selectedSubUnit} handleConversion={this.handleConversion} currentUnit={this.state.currentUnit}/>
                 </div>
                 
                 </div>
