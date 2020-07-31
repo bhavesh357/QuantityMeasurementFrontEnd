@@ -5,5 +5,12 @@ const api=axios.create({
     
 })
 
-export default api;
+export async function getMainUnits(element){
+    await api.get('/');
+    
+}
 
+
+export default api;
+    
+    

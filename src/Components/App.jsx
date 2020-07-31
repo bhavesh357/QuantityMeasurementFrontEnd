@@ -5,7 +5,8 @@ import QuantityConverter from './QuantityConverter';
 import History from './History';
 import './../styles/style.css';
 import {BrowserRouter as Router,Switch,Route} from 'react-router-dom';
-import api from './../Service/quantityservice'
+import api from './../Service/quantityservice';
+import getMainUnits from './../Service/quantityservice';
 
 var units=[{
   mainUnit:"Length",
@@ -40,7 +41,7 @@ class App extends React.Component{
   async getSubUnits(mainUnit){
     
   }
-
+  
   async getAllUnits(mainUnits){
     let newList=[];
     for(let i=0;i<mainUnits.length;i++){
@@ -65,11 +66,10 @@ class App extends React.Component{
   
   async componentDidMount(){
     console.log("Component did mount");
-    let mainUnits = await api.get('/')
-    .then( res => {
-      console.log("getting data");
-      return res.data.object
-     });
+    let mainUnits = await getMainUnits().then(res => {
+      console.log(res.data.object);
+      return res.data.object;
+    });
     console.log(mainUnits);
     let newMainUnits= await this.getAllUnits(mainUnits).then( res=> {
       console.log(res);
