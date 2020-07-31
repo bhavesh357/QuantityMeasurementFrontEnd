@@ -18,7 +18,7 @@ class QuantityConverter extends React.Component{
     
     async componentDidMount(){
         console.log(this.state.selectedSubUnit);
-        
+        document.getElementById("quantity-type-sub-input-from").focus();
     }
 
     componentDidUpdate(){
