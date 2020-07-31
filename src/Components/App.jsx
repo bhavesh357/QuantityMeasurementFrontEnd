@@ -26,7 +26,6 @@ class App extends React.Component{
   constructor(props){
     super(props);
     this.state={
-      conversions: [],
       units: units,
     }
     this.handleConversion=this.handleConversion.bind(this);
@@ -70,6 +69,7 @@ class App extends React.Component{
     this.setState({
       units: newMainUnits,
     })
+    localStorage.setItem("history",JSON.stringify([]));
   }
   
   componentDidUpdate(){
@@ -77,15 +77,14 @@ class App extends React.Component{
   }
   
   handleConversion(conversion){
-    var newConversions=this.state.conversions;
+    var newConversions=JSON.parse(localStorage.getItem("history")) || [];
     console.log(newConversions);
     newConversions.push(conversion);
     
     console.log(newConversions);
-    this.setState({
-      conversions: newConversions,
-    });
-    console.log(this.state.conversions);
+    localStorage.setItem('history',JSON.stringify(newConversions));
+    localStorage.setItem('author',"Bhavesh");
+    console.log(localStorage.getItem('history'));
   }
   
   
@@ -102,7 +101,7 @@ class App extends React.Component{
         </div>}>
         </Route>
         <Route path="/history" exact render={() =>
-          <History history={this.state.conversions} />
+          <History history={JSON.parse(localStorage.getItem("history")) } />
         }>
         </Route>
         </Switch>

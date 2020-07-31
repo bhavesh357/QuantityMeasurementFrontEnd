@@ -1,6 +1,10 @@
 import React from 'react';
 
 class History extends React.Component{
+
+    componentDidMount(){
+        console.log(JSON.parse(localStorage.getItem("history")) );
+    }
     render(){
 
         let conversionList= this.props.history.map((conversion,key) => {
