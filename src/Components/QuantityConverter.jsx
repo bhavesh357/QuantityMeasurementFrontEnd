@@ -1,7 +1,7 @@
 import React from 'react';
 import MainUnit from './MainUnit';
 import SubUnit from './SubUnit';
-import api from '../Service/quantityservice'
+import {getConversion} from './../Service/quantityservice'
 
 class QuantityConverter extends React.Component{
     constructor(props){
@@ -83,9 +83,7 @@ class QuantityConverter extends React.Component{
                 sizeTwo: 0
             };
             console.log(quantity);
-            var testOne=await api.post('/unit',quantity).then( res => {
-                return res.data.object;
-            });
+            var testOne=await getConversion(quantity);
             console.log(testOne);
             this.props.sendConversion(testOne);
             flag ? 
