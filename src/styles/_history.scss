@@ -51,6 +51,26 @@
     border: $background-color solid 1px;
 }
 
+.clear-history{
+    width: 100%;
+    display: flex;
+    justify-content: flex-end;
+}
+
+.clear-history-btn{
+    cursor: pointer;
+    padding: 0.5em 0.5em;
+    border: 1px solid $primary-color;
+    border-radius: 0.5em;
+    color: $primary-color;
+    margin: 0em 1em;
+    &:hover{
+        background-color: $primary-color;
+        color: $primary-text;
+    }
+}
+
+
 @media (max-width:576px){
     .history{
         width: 100%;

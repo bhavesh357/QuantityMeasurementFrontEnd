@@ -403,6 +403,30 @@
   border: #F5F6FA solid 1px;
 }
 
+.clear-history {
+  width: 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: end;
+      -ms-flex-pack: end;
+          justify-content: flex-end;
+}
+
+.clear-history-btn {
+  cursor: pointer;
+  padding: 0.5em 0.5em;
+  border: 1px solid #446DFF;
+  border-radius: 0.5em;
+  color: #446DFF;
+  margin: 0em 1em;
+}
+
+.clear-history-btn:hover {
+  background-color: #446DFF;
+  color: #000000;
+}
+
 @media (max-width: 576px) {
   .history {
     width: 100%;

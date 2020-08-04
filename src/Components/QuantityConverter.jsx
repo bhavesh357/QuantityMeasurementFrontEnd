@@ -110,6 +110,7 @@ class QuantityConverter extends React.Component{
             
             
             return (
+                <React.Fragment>
                 <div className="quantity-converter">
                 <div className="quantity-type">
                 CHOOSE TYPE
@@ -123,6 +124,7 @@ class QuantityConverter extends React.Component{
                 </div>
                 
                 </div>
+                </React.Fragment>
                 );
             }
         }
