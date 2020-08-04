@@ -6,6 +6,7 @@ import History from './History';
 import './../styles/style.css';
 import {BrowserRouter as Router,Switch,Route} from 'react-router-dom';
 import {getMainUnits,getSubUnits} from './../Service/quantityservice';
+import {ProtectedRoute} from './ProtectedRoute';
 
 var units=[{
   mainUnit:"Length",
@@ -88,6 +89,7 @@ class App extends React.Component{
   
   
   render(){
+
     return (
       <Router>
       <div className="App">
@@ -98,11 +100,8 @@ class App extends React.Component{
         <AppTitle title="Welcome to Quantity Measurement"/>
         <QuantityConverter units={this.state.units} sendConversion={this.handleConversion}/>
         </div>}>
-        </Route>
-        <Route path="/history" exact render={() =>
-          <History history={JSON.parse(localStorage.getItem("history")) || [] } />
-        }>
-        </Route>
+      </Route>
+      <ProtectedRoute exact path="/history" component={History} />
         </Switch>
         </div>
         </Router>
