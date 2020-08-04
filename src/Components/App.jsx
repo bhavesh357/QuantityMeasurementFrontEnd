@@ -69,7 +69,6 @@ class App extends React.Component{
     this.setState({
       units: newMainUnits,
     })
-    localStorage.setItem("history",JSON.stringify([]));
   }
   
   componentDidUpdate(){
@@ -101,7 +100,7 @@ class App extends React.Component{
         </div>}>
         </Route>
         <Route path="/history" exact render={() =>
-          <History history={JSON.parse(localStorage.getItem("history")) } />
+          <History history={JSON.parse(localStorage.getItem("history")) || [] } />
         }>
         </Route>
         </Switch>

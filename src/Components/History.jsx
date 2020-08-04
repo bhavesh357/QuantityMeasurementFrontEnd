@@ -1,13 +1,34 @@
 import React from 'react';
 
 class History extends React.Component{
+
+    constructor(props){
+        super(props)
+
+        this.state={
+            history: this.props.history,
+        }
+    }
     
     componentDidMount(){
-        console.log(JSON.parse(localStorage.getItem("history")) );
+        console.log(this.state.history);
+    }
+
+    componentDidUpdate(){
+        console.log(this.state.history);
+    }
+
+    handleClick(){
+        localStorage.setItem("history",JSON.stringify([]));
+        console.log(JSON.parse(localStorage.getItem("history")));
+        var clearedHistory=[];
+        this.setState({
+            history: clearedHistory,
+        });
     }
     render(){
         
-        let conversionList= this.props.history.map((conversion,key) => {
+        let conversionList= this.state.history.map((conversion,key) => {
             return (
                 <div  key={key} className="history-list-item">
                 <div className="history-list-item-column main-unit-column">
@@ -32,7 +53,7 @@ class History extends React.Component{
             return (
                 <div className="history">
                 <div className="clear-history" >
-                <div className="clear-history-btn">
+                <div className="clear-history-btn" onClick={() => this.handleClick()}>
                 Clear History
                 </div>
                 </div>
